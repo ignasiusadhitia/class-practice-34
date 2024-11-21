@@ -1,0 +1,9 @@
+{
+  "todos": [
+    {
+      "id": "c1dd13d8-3a6e-4397-ad7f-e4cd7698a296",
+      "text": "Belajar Redux",
+      "completed": false
+    }
+  ]
+}
