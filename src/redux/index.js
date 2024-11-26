@@ -8,8 +8,7 @@ import todoReducer from "./slices/todosSlice";
 import langReducer from "./slices/langSlice";
 
 const encryptor = encryptTransform({
-  // secretKey: import.meta.env.VITE_ENCRYPT_KEY,
-  secretKey: "secretKey",
+  secretKey: import.meta.env.VITE_ENCRYPT_KEY,
   onError: (error) => {
     console.error("Error while encrypting", error);
   },
