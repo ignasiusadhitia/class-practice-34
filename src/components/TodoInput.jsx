@@ -44,6 +44,7 @@ const TodoInput = () => {
             lang === "en" ? "Add a new task" : "Tambahkan tugas baru"
           }
           value={text}
+          cy-data="input-form"
           required
           onChange={handleInputChange}
         />
@@ -51,6 +52,7 @@ const TodoInput = () => {
           className={`btn ${isUpdate ? "btn-warning" : "btn-primary"} `}
           type="submit"
           // disabled={loading}
+          cy-data="input-button"
         >
           {isUpdate
             ? lang === "en"

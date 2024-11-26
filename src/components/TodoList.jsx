@@ -53,7 +53,7 @@ const TodoList = () => {
 
   if (todos.length === 0) {
     return (
-      <p className="alert alert-secondary text-center">
+      <p className="alert alert-secondary text-center" cy-data="no-tasks">
         {lang === "en" ? "No tasks found" : "Tugas tidak ditemukan"}.
       </p>
     );
@@ -67,13 +67,13 @@ const TodoList = () => {
           className={`list-group-item d-flex justify-content-between align-items-center ${
             todo.completed ? "list-group-item-secondary" : ""
           }`}
+          onClick={() => dispatch(toggleTodo(todo.id))}
         >
           <span
             style={{
               cursor: "pointer",
               textDecoration: todo.completed ? "line-through" : "none",
             }}
-            onClick={() => dispatch(toggleTodo(todo))}
           >
             {todo.text}
           </span>
@@ -81,6 +81,7 @@ const TodoList = () => {
             <button
               className="btn btn-warning btn-sm"
               onClick={(e) => handleCurrentTodo(e, todo)}
+              cy-data="edit-button"
             >
               {lang === "en" ? "Edit" : "Perbarui"}
             </button>
@@ -88,6 +89,7 @@ const TodoList = () => {
             <button
               className="btn btn-danger btn-sm"
               onClick={(e) => handleDelete(e, todo.id)}
+              cy-data="delete-button"
             >
               {lang === "en" ? "Delete" : "Hapus"}
             </button>

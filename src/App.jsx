@@ -19,11 +19,15 @@ const App = () => {
           <div className="card shadow">
             <div className="card-body">
               <div className="d-flex justify-content-end gap-3 mb-5">
-                <button className="btn btn-sm btn-dark" onClick={toggleLang}>
+                <button
+                  className="btn btn-sm btn-dark"
+                  onClick={toggleLang}
+                  cy-data="lang-button"
+                >
                   {lang === "en" ? "ID" : "EN"}
                 </button>
               </div>
-              <h1 className="card-title text-center mb-4">
+              <h1 className="card-title text-center mb-4" cy-data="app-title">
                 {lang === "en" ? "To-Do List" : "Daftar to-Do"}
               </h1>
               <TodoInput />
