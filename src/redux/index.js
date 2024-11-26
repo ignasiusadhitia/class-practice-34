@@ -3,7 +3,8 @@ import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { encryptTransform } from "redux-persist-transform-encrypt";
 import { configureStore } from "@reduxjs/toolkit";
-import todoReducer from "./async/todosSlice";
+// import todoReducer from "./async/todosSlice";
+import todoReducer from "./slices/todosSlice";
 import langReducer from "./slices/langSlice";
 
 const encryptor = encryptTransform({

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import { addTodo, resetTodo, updateTodo } from "../redux/async/todosSlice";
+// import { addTodo, resetTodo, updateTodo } from "../redux/async/todosSlice";
+import { addTodo, updateTodo } from "../redux/slices/todosSlice";
 
 const TodoInput = () => {
-  const { isUpdate, todo, loading } = useSelector((state) => state.todos);
+  // const { isUpdate, todo, loading } = useSelector((state) => state.todos);
+  const { isUpdate, todo } = useSelector((state) => state.todos);
   const { lang } = useSelector((state) => state.lang);
   const dispatch = useDispatch();
   const [text, setText] = useState("");
@@ -18,7 +20,7 @@ const TodoInput = () => {
     if (text.trim() !== "") {
       if (isUpdate) {
         dispatch(updateTodo({ ...todo, text }));
-        dispatch(resetTodo());
+        // dispatch(resetTodo());
       } else {
         dispatch(addTodo({ id: uuidv4(), text, completed: false }));
       }
@@ -48,7 +50,7 @@ const TodoInput = () => {
         <button
           className={`btn ${isUpdate ? "btn-warning" : "btn-primary"} `}
           type="submit"
-          disabled={loading}
+          // disabled={loading}
         >
           {isUpdate
             ? lang === "en"

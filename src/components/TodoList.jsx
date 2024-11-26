@@ -1,17 +1,25 @@
-import React, { useEffect } from "react";
+// import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+// import {
+//   currentTodo,
+//   deleteTodo,
+//   fetchTodos,
+//   toggleTodo,
+// } from "../redux/async/todosSlice";
 
 import {
   currentTodo,
   deleteTodo,
-  fetchTodos,
   toggleTodo,
-} from "../redux/async/todosSlice";
+} from "../redux/slices/todosSlice";
 
 const TodoList = () => {
-  const { todos, loading, error, isSuccess } = useSelector(
-    (state) => state.todos
-  );
+  // const { todos, loading, error, isSuccess } = useSelector(
+  //   (state) => state.todos
+  // );
+
+  const todos = useSelector((state) => state.todos.todos);
   const { lang } = useSelector((state) => state.lang);
   const dispatch = useDispatch();
 
@@ -25,23 +33,23 @@ const TodoList = () => {
     dispatch(currentTodo(todo));
   };
 
-  useEffect(() => {
-    dispatch(fetchTodos());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchTodos());
+  // }, [dispatch]);
 
-  useEffect(() => {
-    if (isSuccess) {
-      dispatch(fetchTodos());
-    }
-  }, [dispatch, isSuccess]);
+  // useEffect(() => {
+  //   if (isSuccess) {
+  //     dispatch(fetchTodos());
+  //   }
+  // }, [dispatch, isSuccess]);
 
-  if (loading) {
-    return <p className="alert alert-secondary text-center">Loading...</p>;
-  }
+  // if (loading) {
+  //   return <p className="alert alert-secondary text-center">Loading...</p>;
+  // }
 
-  if (error) {
-    return <p className="alert alert-danger text-center">{error}</p>;
-  }
+  // if (error) {
+  //   return <p className="alert alert-danger text-center">{error}</p>;
+  // }
 
   if (todos.length === 0) {
     return (
